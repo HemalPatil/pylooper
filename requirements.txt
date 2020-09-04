@@ -1,0 +1,7 @@
+click==7.1.2
+numpy==1.19.1
+PyAudio==0.2.11
+PyQt5==5.15.0
+PyQt5-sip==12.8.1
+pyqt5-tools==5.15.0.1.7.1
+python-dotenv==0.14.0
