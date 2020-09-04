@@ -112,6 +112,7 @@ class PyLooperTrack(QtWidgets.QGroupBox):
 
     def setTrackState(self, state):
         self.currentTrackState = state
+        # TODO: stylesheets/states could be optimized
         if state == PyLooperTrackState.Idle:
             self.recordButton.setStyleSheet("background-color: #dddddd; color: black")
             self.recordButton.setEnabled(True)
@@ -156,7 +157,7 @@ class PyLooperTrack(QtWidgets.QGroupBox):
             self.setTrackState(PyLooperTrackState.Idle)
 
     def loopButtonClicked(self):
-        # Flip isRecoding first so record callback starts immediately and then update UI
+        # Flip isLooping first so loop callback starts immediately and then update UI
         self.isLooping = not self.isLooping
         if self.isLooping:
             self.setTrackState(PyLooperTrackState.Looping)
@@ -239,7 +240,7 @@ class PyLooperTrack(QtWidgets.QGroupBox):
             chunk = self.convertToLoopChunk(self.recordInputBuffer[tmpPointer:tmpPointer + self.recordInputChunkSize])
 
             # Adjust volume and do balance panning on stereo audio
-            # Possibly add a selector for panning modes - Balance panning/combined panning
+            # TODO: Possibly add a selector for panning modes - Balance panning/combined panning
             chunkEqualized = np.multiply(chunk, self.eqSlider.value() / 100)
             panValue = self.panSlider.value()
             leftPan = (100 - panValue) / 50
