@@ -14,6 +14,7 @@ CHUNK = int(audio_parameters[1]) #buffer size
 FORMAT = pyaudio.paInt16 #16-bit audio
 CHANNELS = 1 #mono
 
+#Boi, you write comments before the code, if you ever sell out and join corporate (like me), reviewers are going to eat your a$$ up for $#it like this (including me)
 latency_in_milliseconds = int(audio_parameters[2])
 LATENCY = int((RATE / CHUNK) * (latency_in_milliseconds / 1000))
 #this variable corrects for latency in overdubbing
@@ -42,12 +43,15 @@ metronome_clicktime = CLIPLENGTH / (beats_per_bar * bars_per_loop)
 #no of buffers i.e. time, between metronome clicks
 countin_length = int((CLIPLENGTH / bars_per_loop) * bars_of_countin)
 #length in buffers of count-in
-mix_ratio = 1;
+mix_ratio = 1;      #WTAF, a semicolon in python?! BLASPHEMY!!!
 #initializing overdub attenuation factor
 
 pa = pyaudio.PyAudio()
 
 class audioclip:
+    #Boi, you need to fix your trailing spaces and indentation, empty lines with indent are a no-no
+    #look at line below and other lines in this class as well as this file
+    #suggestion: git a better editor, one that can show whitespaces (e.g. VSCode - integrates well with python and virtualenv, gives you IntelliSense (a gift from God Himself) as well)
     
     def __init__(self):
         self.audio = np.zeros([CLIPLENGTH, CHUNK], dtype = np.int16)
